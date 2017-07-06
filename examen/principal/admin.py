@@ -3,4 +3,11 @@ from __future__ import unicode_literals
 
 from django.contrib import admin
 
-# Register your models here.
+from .models import Contacto
+
+class ContactosUsuarios(admin.ModelAdmin):
+	list_display = ('id', 'nombre', 'apellido', 'Email', 'Telefono', 'Direccion', 'imagen')
+	list_filter = ('id'),
+	list_search = ('nombre','apellido')
+
+admin.site.register(Contacto,ContactosUsuarios)
